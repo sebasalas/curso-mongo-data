@@ -1,0 +1,35 @@
+use("platzi_store")
+
+db.users.insertOne({
+    email: 'molina@example.com',
+    password: 'Azas1jhjsd88987sdA',
+    role: 'admin',
+    social_accounts: ['twitter', 'facebook'],
+    address: {
+        street: 'cr 891',
+        city: 'Bogotá',
+        zip_code: '11011'
+    },
+    shipping_address: {
+        street: 'cr 23 12',
+        city: 'Bogotá',
+        zip_code: '12011'
+    }
+})
+
+db.users.insertOne({
+    email: 'zule@example.com',
+    password: 'Azas1jhjsd88987sdA',
+    role: 'customer',
+    social_accounts: ['twitter', 'facebook'],
+    address: {
+        street: 'cr 82191',
+        city: 'Cali',
+        zip_code: '11011'
+    },
+    shipping_address: {
+        street: 'cr 223 12',
+        city: 'Cali',
+        zip_code: '13011'
+    }
+})
