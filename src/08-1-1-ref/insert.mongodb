@@ -7,7 +7,7 @@ db.stores.insertOne({
 })
 
 db.stores_details.insertOne({
-  storeId: 'ST001',
+  storeId: 'ST001', // This is the same as the storeId in stores
   description: 'Seba Store description',
   manager: {
     email: 'seba@example.com',
