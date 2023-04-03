@@ -1,0 +1,47 @@
+use("platzi_store")
+
+db.users.find()
+
+db.orders.find({
+  user_id: ObjectId('642a24212f940018287e03e3')
+}).count()
+
+db.orders.find({
+  user_id: ObjectId('642a2481ed19ea929e5c089e')
+})
+
+db.users.findOne({
+  _id: ObjectId('642a2481ed19ea929e5c089e')
+})
+
+db.orders.aggregate([ // Agregate es un pipeline
+  {
+    $match: { // Match es un filtro
+      _id: ObjectId('642a422831ab2a7414acbaa2')
+    }
+  },
+  {
+    $lookup: { // Lookup es un join
+      from: 'users',
+      localField: 'user_id',
+      foreignField: '_id',
+      as: 'user'
+    }
+  }
+])
+
+db.users.aggregate([
+  {
+    $match: {
+      _id: ObjectId('642a24212f940018287e03e3')
+    }
+  },
+  {
+    $lookup: {
+      from: 'orders',
+      localField: '_id',
+      foreignField: 'user_id',
+      as: 'orders'
+    }
+  }
+])
